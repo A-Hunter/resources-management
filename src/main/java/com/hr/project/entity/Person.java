@@ -1,6 +1,7 @@
 package com.hr.project.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Ghazi Naceur on 18/06/2017.
@@ -23,6 +24,9 @@ public class Person {
 
     @Column(name="email")
     private String email;
+
+    @OneToMany(mappedBy="owner")
+    private Set<Car> cars;
 
     public Person(){
         super();
