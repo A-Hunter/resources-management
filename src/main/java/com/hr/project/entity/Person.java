@@ -1,16 +1,27 @@
 package com.hr.project.entity;
 
+import javax.persistence.*;
+
 /**
  * Created by Ghazi Naceur on 18/06/2017.
  */
+
+@Entity
+@Table(name="person")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="person_id")
     private long id;
 
+    @Column(name="username")
     private String username;
 
+    @Column(name="address")
     private String address;
 
+    @Column(name="email")
     private String email;
 
     public Person(){
