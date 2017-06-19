@@ -61,8 +61,8 @@ public class PersonServiceImpl implements PersonService {
         // DATABASE, CONSULT THAT NUMBER EACH TIME I ADD A NEW ITEM AND INCREMENT IT
         // OR
         // A SILLY SOLUTION : DROP THE DATABASE WHEN LAUNCHING THE PROJECT AND CREATE ANOTHER ONE
-        person.setId(counter.incrementAndGet());
-        persons.add(person);
+//        person.setId(counter.incrementAndGet());
+//        persons.add(person);
         //
         personDAO.savePerson(person);
         //
