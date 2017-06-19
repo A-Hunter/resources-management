@@ -19,8 +19,11 @@ import java.util.List;
 @Transactional
 public class PersonDAOService implements PersonDAO {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+//    @Autowired
+//    private SessionFactory sessionFactory;
+
+    @PersistenceContext
+    EntityManager entityManager;
 
     public Person findById(long id) {
         return null;
@@ -31,8 +34,9 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public void savePerson(Person person) {
-        Session session = this.sessionFactory.getCurrentSession();
-        session.persist(person);
+//        Session session = this.sessionFactory.getCurrentSession();
+//        session.persist(person);
+        entityManager.persist(person);
         System.out.println("Person saved successfully, Person Details="+person.getUsername());
 
     }
