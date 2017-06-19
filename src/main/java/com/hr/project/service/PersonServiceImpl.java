@@ -70,8 +70,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     public void updatePerson(Person person) {
-        int index = persons.indexOf(person);
-        persons.set(index, person);
+//        int index = persons.indexOf(person);
+//        persons.set(index, person);
+        personDAO.updatePerson(person);
     }
 
     public void deletePersonById(long id) {

@@ -42,7 +42,7 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public void updatePerson(Person person) {
-
+        entityManager.merge(person);
     }
 
     public void deletePersonById(long id) {
