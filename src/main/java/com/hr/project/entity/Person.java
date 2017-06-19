@@ -12,7 +12,7 @@ import java.util.Set;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+//    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="person_id")
     private long id;
 
@@ -32,11 +32,12 @@ public class Person {
         super();
     }
 
-    public Person(long id, String username, String address, String email){
+    public Person(long id, String username, String address, String email, Set<Car> cars) {
         this.id = id;
         this.username = username;
         this.address = address;
         this.email = email;
+        this.cars = cars;
     }
 
     public long getId() {
@@ -69,6 +70,14 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Set<Car> cars) {
+        this.cars = cars;
     }
 
     @Override
