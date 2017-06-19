@@ -79,7 +79,7 @@ angular.module('myApp').controller('PersonController', ['$scope', 'PersonService
     function remove(id){
         console.log('id to be deleted', id);
         if(self.person.id === id) {//clean form if the person to be deleted is shown there.
-            self.reset();
+            reset();
         }
         deletePerson(id);
     }

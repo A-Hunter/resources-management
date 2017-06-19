@@ -77,12 +77,13 @@ public class PersonServiceImpl implements PersonService {
 
     public void deletePersonById(long id) {
 
-        for (Iterator<Person> iterator = persons.iterator(); iterator.hasNext(); ) {
-            Person person = iterator.next();
-            if (person.getId() == id) {
-                iterator.remove();
-            }
-        }
+        personDAO.deletePersonById(id);
+//        for (Iterator<Person> iterator = persons.iterator(); iterator.hasNext(); ) {
+//            Person person = iterator.next();
+//            if (person.getId() == id) {
+//                iterator.remove();
+//            }
+//        }
     }
 
     public boolean isPersonExist(Person person) {

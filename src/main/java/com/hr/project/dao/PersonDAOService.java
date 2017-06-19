@@ -46,7 +46,8 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public void deletePersonById(long id) {
-
+        Person person = entityManager.getReference(Person.class, id);
+        entityManager.remove(person);
     }
 
     public List<Person> findAllPersons() {
