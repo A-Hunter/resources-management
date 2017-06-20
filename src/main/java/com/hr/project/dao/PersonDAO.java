@@ -21,7 +21,5 @@ public interface PersonDAO {
 
     List<Person> findAllPersons();
 
-    void deleteAllPersons();
-
     public boolean isPersonExist(Person person);
 }

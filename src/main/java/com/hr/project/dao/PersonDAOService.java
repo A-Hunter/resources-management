@@ -24,7 +24,10 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public Person findByName(String name) {
-        return null;
+        String hql = "FROM Person as atcl WHERE atcl.username = ? ";
+        List resultList = entityManager.createQuery(hql).setParameter(1, name)
+                .getResultList();
+        return resultList.size()> 0 ? (Person) resultList.get(0) : null;
     }
 
     public void savePerson(Person person) {
@@ -47,11 +50,12 @@ public class PersonDAOService implements PersonDAO {
 
     }
 
-    public void deleteAllPersons() {
-
-    }
-
     public boolean isPersonExist(Person person) {
+        // TODO : IMPLEMENTING THE SAME LOGIC OF SEARCHING BY USERNAME
+        // CURRENTLY IN THE SERVICE LAYER WE CALL THE "isPersonExist" FUNCTION, AND THE SEARCH LOGIC IS CORRESPONDING TO
+        // THE USERNAME.. I SHOULD CHANGE IT TO EMAIL (UNIQUE FILED) --> MAYBE I SHOULD SEE TO CHANGE THE PERSON ENTITY
+        // TOO TO SHOW THAT A CERTAIN FIELD IS UNIQUE
         return false;
     }
+
 }

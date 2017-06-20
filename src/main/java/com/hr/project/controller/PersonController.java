@@ -105,14 +105,4 @@ public class PersonController {
         return new ResponseEntity<Person>(HttpStatus.NO_CONTENT);
     }
 
-
-    //------------------- Delete All Persons --------------------------------------------------------
-
-    @RequestMapping(value = "/person/", method = RequestMethod.DELETE)
-    public ResponseEntity<Person> deleteAllPersons() {
-        System.out.println("Deleting All Persons");
-
-        service.deleteAllPersons();
-        return new ResponseEntity<Person>(HttpStatus.NO_CONTENT);
-    }
 }
