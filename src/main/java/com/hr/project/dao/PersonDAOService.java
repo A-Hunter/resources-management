@@ -20,7 +20,7 @@ public class PersonDAOService implements PersonDAO {
     EntityManager entityManager;
 
     public Person findById(long id) {
-        return null;
+        return entityManager.find(Person.class, id);
     }
 
     public Person findByName(String name) {

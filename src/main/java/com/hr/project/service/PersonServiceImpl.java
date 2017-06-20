@@ -26,12 +26,7 @@ public class PersonServiceImpl implements PersonService {
     PersonDAO personDAO;
 
     public Person findById(long id) {
-//        for (Person person : persons) {
-//            if (person.getId() == id) {
-//                return person;
-//            }
-//        }
-        return null;
+        return personDAO.findById(id);
     }
 
     public Person findByName(String name) {
