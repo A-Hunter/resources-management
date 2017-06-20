@@ -1,15 +1,12 @@
 package com.hr.project.dao;
 
 import com.hr.project.entity.Person;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -18,9 +15,6 @@ import java.util.List;
 @Repository("PersonDAO")
 @Transactional
 public class PersonDAOService implements PersonDAO {
-
-//    @Autowired
-//    private SessionFactory sessionFactory;
 
     @PersistenceContext
     EntityManager entityManager;
@@ -34,11 +28,8 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public void savePerson(Person person) {
-//        Session session = this.sessionFactory.getCurrentSession();
-//        session.persist(person);
         entityManager.persist(person);
-        System.out.println("Person saved successfully, Person Details="+person.getUsername());
-
+        System.out.println("Person saved successfully, Person Details=" + person.getUsername());
     }
 
     public void updatePerson(Person person) {
@@ -51,7 +42,9 @@ public class PersonDAOService implements PersonDAO {
     }
 
     public List<Person> findAllPersons() {
-        return null;
+        Query query = entityManager.createQuery("select t from Person t");
+        return query.getResultList();
+
     }
 
     public void deleteAllPersons() {

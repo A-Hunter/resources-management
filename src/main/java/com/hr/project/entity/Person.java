@@ -1,6 +1,7 @@
 package com.hr.project.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -25,14 +26,14 @@ public class Person {
     @Column(name="email")
     private String email;
 
-    @OneToMany(mappedBy="owner")
-    private Set<Car> cars;
+    @OneToMany(mappedBy="owner",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Car> cars;
 
     public Person(){
         super();
     }
 
-    public Person(long id, String username, String address, String email, Set<Car> cars) {
+    public Person(long id, String username, String address, String email, List<Car> cars) {
         this.id = id;
         this.username = username;
         this.address = address;
@@ -72,11 +73,11 @@ public class Person {
         this.email = email;
     }
 
-    public Set<Car> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public void setCars(Set<Car> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }
 
